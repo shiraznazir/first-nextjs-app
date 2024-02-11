@@ -1,4 +1,3 @@
-import { log } from 'console';
 import { connect } from "@/app/dbConfig/dbConfig";
 import  User from "@/models/userModel";
 import { NextRequest, NextResponse } from "next/server";
