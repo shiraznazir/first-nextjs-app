@@ -3,7 +3,9 @@ import "dotenv/config";
 
 export const connect = async () => {
   try {
-    await mongoose.connect("mongodb://localhost:27017/first_nextjs_app");
+    await mongoose.connect(
+      "mongodb+srv://talmud786:5724208sN@users.zpm7hjp.mongodb.net/first-nextjs-app"
+    );
 
     const connection = mongoose.connection;
     connection.on("connected", () => {
