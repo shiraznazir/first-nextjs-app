@@ -3,7 +3,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from 'next/navigation'
-import { toast } from "react-hot-toast";
+import { Toaster , toast } from "react-hot-toast";
 
 export default function SignupPage() {
   const router = useRouter();
@@ -20,12 +20,18 @@ export default function SignupPage() {
       setLoading(true);
       setBtnDisable(true);
       const response = await axios.post("api/users/signup", user);
-      if (response) {
-        console.log("Sign up", response.data);
+      // if (response) {
+      //   toast.success("User created successfully");
+      //   setTimeout(() => {
+      //       router.push("/login");
+      //     }, 1000);
+      // }
+      if (response.data.status === 500) {
+        toast.error("Signup Failed");
+        setBtnDisable(false);
+      }else{
         toast.success("User created successfully");
-        setTimeout(() => {
-            router.push("/login");
-          }, 3000);
+        router.push("/login");
       }
     } catch (err: any) {
       console.log("Sign up Failed ", err);
@@ -90,6 +96,7 @@ export default function SignupPage() {
           Visit login page
         </Link>
       </div>
+      <Toaster position="top-right" />
     </div>
   );
 }
