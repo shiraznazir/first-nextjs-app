@@ -3,7 +3,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from 'next/navigation'
-import { Toaster , toast } from "react-hot-toast";
+import { Toaster, toast } from "react-hot-toast";
 
 export default function SignupPage() {
   const router = useRouter();
@@ -29,7 +29,7 @@ export default function SignupPage() {
       if (response.data.status === 500) {
         toast.error("Signup Failed");
         setBtnDisable(false);
-      }else{
+      } else {
         toast.success("User created successfully");
         router.push("/login");
       }
@@ -83,18 +83,22 @@ export default function SignupPage() {
           onChange={(e) => setUser({ ...user, password: e.target.value })}
         />
         <button
-          className={`my-4 bg-white rounded-lg p-[0.3rem] text-black ${
-            btnDisable ? "opacity-25" : "opacity-100"
-          }`}
+          className={`my-4 bg-white rounded-lg p-[0.3rem] text-black ${btnDisable ? "opacity-25" : "opacity-100"
+            }`}
           type="button"
           onClick={onSignUp}
           disabled={btnDisable}
         >
           {loading ? "loading..." : "Sign Up"}
         </button>
-        <Link className="text-center underline" href="/login">
-          Visit login page
-        </Link>
+        <div className="mt-4 flex flex-col justify-center items-center">
+          <Link
+            className="w-6/12 py-2 px-12 rounded-lg text-center bg-green-800"
+            href="/login"
+          >
+            Login
+          </Link>
+        </div>
       </div>
       <Toaster position="top-right" />
     </div>

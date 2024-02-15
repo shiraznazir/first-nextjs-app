@@ -41,7 +41,6 @@ export const sendEmail = async ({ email, emailType, userId }: any) => {
       }?token=${hashedToken}
         </p>`,
     };
-    console.log("Mail OPtions ", mailOptions);
 
     const mailResponse = await transport.sendMail(mailOptions);
 

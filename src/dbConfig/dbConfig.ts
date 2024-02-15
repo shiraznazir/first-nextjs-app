@@ -1,11 +1,10 @@
 import mongoose from "mongoose";
-import "dotenv/config";
 
 export const connect = async () => {
+  const url =
+    "mongodb+srv://talmud786:5724208sN@users.zpm7hjp.mongodb.net/first-nextjs-app";
   try {
-    await mongoose.connect(
-      "mongodb+srv://talmud786:5724208sN@users.zpm7hjp.mongodb.net/first-nextjs-app"
-    );
+    await mongoose.connect(url);
 
     const connection = mongoose.connection;
     connection.on("connected", () => {
