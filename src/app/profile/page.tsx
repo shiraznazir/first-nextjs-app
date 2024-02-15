@@ -13,9 +13,7 @@ export default function ProfilePage(){
             const response = await axios.get('api/users/logout');
             if(response){
                 toast.success("Logout Successfully");
-                setTimeout(()=>{
-                    router.push("login");
-                }, 1000)
+                router.push("login");
             }
         } catch (error: any) {
             toast.error(error.message);
