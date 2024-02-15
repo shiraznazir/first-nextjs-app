@@ -12,7 +12,7 @@ export default function Home() {
           if(response){
               toast.success("Logout Successfully");
               setTimeout(()=>{
-                  router.push("login");
+                  router.push("/login");
               }, 1000)
           }
       } catch (error: any) {
